@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (post_password_required()) {
     return;
@@ -11,53 +11,56 @@ if (post_password_required()) {
 <div id="comments" class="clearfix">
 
     <?php
-        if (have_comments()) {
-            ?>
-            <h3 id="comments-title"><span><?php comments_number(); ?></span></h3>
-
-            <!-- Comments List
-                            ============================================= -->
-            <ol class="commentlist clearfix">
-
-                <?php  
-                
-                foreach ($comments as $comment) {
-                    ?>
-                    <li class="comment even thread-even depth-1" id="li-comment-1">
-
-                        <div id="comment-1" class="comment-wrap clearfix">
-                            <div class="comment-meta">
-                                <div class="comment-author vcard">
-                                    <span class="comment-avatar clearfix">
-                                        <?php echo get_avatar( $comment, 60, '', '', ['class' => 'avatar avatar-60 photo avatar-default'] ); ?>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="comment-content clearfix">
-                                <div class="comment-author">
-                                    <?php comment_author(); ?>
-                                    <span><?php comment_date(); ?></span>
-                                </div>
-                                    <?php comment_text(); ?>
-                                </div>
-                                <div class="clear"></div>
-                        </div>
-                    </li>
-                    <?php
-                }
-                
-                the_comments_pagination();
-
-                ?>
-            </ol><!-- .commentlist end -->
-               
-            <?php
-        }
+    if (have_comments()) {
     ?>
+        <h3 id="comments-title"><span><?php comments_number(); ?></span></h3>
+
+        <!-- Comments List
+            ============================================= -->
+        <ol class="commentlist clearfix">
+
+            <?php
+
+            foreach ($comments as $comment) {
+            ?>
+                <li class="comment even thread-even depth-1" id="li-comment-1">
+
+                    <div id="comment-1" class="comment-wrap clearfix">
+                        <div class="comment-meta">
+                            <div class="comment-author vcard">
+                                <span class="comment-avatar clearfix">
+                                    <?php echo get_avatar($comment, 60, '', '', ['class' => 'avatar avatar-60 photo avatar-default']); ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="comment-content clearfix">
+                            <div class="comment-author">
+                                <?php comment_author(); ?>
+                                <span><?php comment_date(); ?></span>
+                            </div>
+                            <?php comment_text(); ?>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </li>
+            <?php
+            }
+
+            the_comments_pagination();
+
+            ?>
+        </ol><!-- .commentlist end -->
+
+    <?php
+
+    }
+    
+    ?>
+
     <div class="clear"></div>
 
     <!-- Comment Form
-                    ============================================= -->
+    ============================================= -->
     <div id="respond" class="clearfix">
 
         <?php
@@ -70,25 +73,25 @@ if (post_password_required()) {
                 <textarea name="comment" cols="58" rows="7" class="sm-form-control"></textarea>
             </div>',
             'fields'            => [
-                'author'        => 
+                'author'        =>
                 '<div class="col_one_third">
-                    <label>' . __( 'Name', 'udemy' ) . '</label>
+                    <label>' . __('Name', 'udemy') . '</label>
                     <input type="text" name="author" class="sm-form-control" />
                 </div>',
-                'email'         => 
+                'email'         =>
                 '<div class="col_one_third">
-                    <label>' . __( 'Email', 'udemy' ) . '</label>
+                    <label>' . __('Email', 'udemy') . '</label>
                     <input type="text" name="email" class="sm-form-control" />
                 </div>',
-                'url'           => 
+                'url'           =>
                 '<div class="col_one_third col_last">
-                    <label>' . __( 'Website', 'udemy' ) . '</label>
+                    <label>' . __('Website', 'udemy') . '</label>
                     <input type="text" name="url" class="sm-form-control" />
                 </div>'
-            ], 
+            ],
             'class_submit'      => 'button button-3d nomargin',
-            'label_submit'      => __( 'Submit Comment', 'udemy' ),
-            'title_reply'       => __( 'Leave a <span>Comment</span>', 'udemy' )
+            'label_submit'      => __('Submit Comment', 'udemy'),
+            'title_reply'       => __('Leave a <span>Comment</span>', 'udemy')
         ]);
 
         ?>
